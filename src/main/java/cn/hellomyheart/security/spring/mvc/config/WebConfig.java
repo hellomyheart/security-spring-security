@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration //相当于springmvc.xml
 @EnableWebMvc
-@ComponentScan(basePackages = "cn.hellomyheart.security.springmvc"
+@ComponentScan(basePackages = "cn.hellomyheart.security.spring.mvc"
         , includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)})
 public class WebConfig implements WebMvcConfigurer {
 
@@ -30,8 +30,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("WEB-INF/view/");
-        viewResolver.setSuffix(".jsp");
+//        viewResolver.setPrefix("WEB-INF/view/");
+//        viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
 
@@ -39,6 +39,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/").setViewName("redirect:/login");
     }
 }

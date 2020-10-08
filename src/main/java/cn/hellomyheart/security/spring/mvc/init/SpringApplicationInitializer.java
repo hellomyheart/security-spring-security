@@ -2,6 +2,7 @@ package cn.hellomyheart.security.spring.mvc.init;
 
 import cn.hellomyheart.security.spring.mvc.config.ApplicationConfig;
 import cn.hellomyheart.security.spring.mvc.config.WebConfig;
+import cn.hellomyheart.security.spring.mvc.config.WebSecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -16,7 +17,7 @@ public class SpringApplicationInitializer extends AbstractAnnotationConfigDispat
     //spring ,相当于加载applicationContext.xml
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ApplicationConfig.class};
+        return new Class[]{ApplicationConfig.class, WebSecurityConfig.class};
     }
 
     //ServletContext,相当于加载springmvc.xml
