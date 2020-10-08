@@ -41,6 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
+                .antMatchers("/r/r1").hasAuthority("p1") //权限设置
+                .antMatchers("/r/r2").hasAuthority("p2")
                 .antMatchers("/r/**").authenticated() //所有/r/**,必须认证
                 .anyRequest().permitAll()  //其他请求可以访问
                 .and()
